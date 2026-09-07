@@ -9,7 +9,7 @@
   const elements = [...document.querySelectorAll([
     '.hero-copy > *', '.hero-visual', '.section-heading > *',
     '.benefit-card', '.system-copy', '.monitor-demo', '.report-paper',
-    '.cta-card > *', '.footer-inner > *',
+    '.cta-card > *', '.footer-inner > *', '.news-card',
   ].join(','))];
   const animations = new Map();
   let observer;
