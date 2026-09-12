@@ -1,43 +1,54 @@
-const navigation = document.querySelector('.nav');
-const toggle = navigation.querySelector('.menu-toggle');
-const links = navigation.querySelector('.nav-links');
-const mobile = window.matchMedia('(max-width: 900px)');
+const navigation = document.querySelector(".nav");
+const toggle = navigation.querySelector(".menu-toggle");
+const links = navigation.querySelector(".nav-links");
+const mobile = window.matchMedia("(max-width: 900px)");
 
 function closeMenu() {
-  toggle.setAttribute('aria-expanded', 'false');
-  toggle.textContent = 'Menu';
+  toggle.setAttribute("aria-expanded", "false");
+  toggle.textContent = "Menu";
 }
 
-toggle.hidden = false;
-navigation.classList.add('has-menu');
+function setMenuState(expanded) {
+  toggle.setAttribute("aria-expanded", String(expanded));
+  links.setAttribute("aria-hidden", String(!expanded));
+  toggle.textContent = expanded ? "Fechar menu" : "Abrir menu";
+}
 
-toggle.addEventListener('click', () => {
-  const expanded = toggle.getAttribute('aria-expanded') !== 'true';
-  toggle.setAttribute('aria-expanded', String(expanded));
-  toggle.textContent = expanded ? 'Fechar' : 'Menu';
+setMenuState(false);
+
+toggle.hidden = false;
+navigation.classList.add("has-menu");
+
+toggle.addEventListener("click", () => {
+  const expanded = toggle.getAttribute("aria-expanded") !== "true";
+  toggle.setAttribute("aria-expanded", String(expanded));
+  toggle.textContent = expanded ? "Fechar" : "Menu";
 });
 
-links.addEventListener('click', (event) => {
-  if (event.target.closest('a') && mobile.matches) {
+links.addEventListener("click", (event) => {
+  if (event.target.closest("a") && mobile.matches) {
     closeMenu();
     toggle.focus({ preventScroll: true });
   }
 });
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+document.addEventListener("keydown", (event) => {
+  if (
+    event.key === "Escape" &&
+    toggle.getAttribute("aria-expanded") === "true"
+  ) {
     closeMenu();
     toggle.focus();
   }
 });
 
-document.addEventListener('click', (event) => {
+document.addEventListener("click", (event) => {
   if (!navigation.contains(event.target)) closeMenu();
 });
 
-mobile.addEventListener('change', () => {
+mobile.addEventListener("change", () => {
   const focused = document.activeElement;
   closeMenu();
   if (mobile.matches && links.contains(focused)) toggle.focus();
-  if (!mobile.matches && focused === toggle) links.querySelector('a').focus();
+  if (!mobile.matches && focused === toggle) links.querySelector("a").focus();
 });

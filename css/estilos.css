@@ -168,17 +168,6 @@ a {
   margin-top: 28px;
 }
 
-.text-link {
-  font-size: 14px;
-  font-weight: 800;
-  border-bottom: 1px solid #9ea9a4;
-  padding: 10px 0;
-}
-
-.text-link span {
-  margin-left: 8px;
-}
-
 .trust-line {
   display: flex;
   gap: 26px;
@@ -353,13 +342,14 @@ a {
 
 .benefit-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
 }
 
 .benefit-card {
   position: relative;
-  min-height: 390px;
+  min-width: 0;
+  min-height: 320px;
   padding: 32px;
   display: flex;
   flex-direction: column;
@@ -369,6 +359,10 @@ a {
 
 .benefit-card.lime {
   background: #eaf2d1;
+}
+
+.benefit-card.sage {
+  background: #e0eee2;
 }
 
 .benefit-card.blue {
@@ -381,10 +375,11 @@ a {
 
 .card-number {
   position: absolute;
-  right: -6px;
-  top: -22px;
-  font: italic 100px Georgia;
+  right: 24px;
+  top: 12px;
+  font: italic 80px / 1 Georgia;
   color: #ffffff70;
+  pointer-events: none;
 }
 
 .benefit-icon {
@@ -394,15 +389,18 @@ a {
   height: 52px;
   border-radius: 50%;
   background: #fff;
-  margin-top: 55px;
+  color: var(--green);
+  margin-top: 0;
 }
 
 .benefit-card h3 {
-  font: 700 27px Georgia;
-  margin: 25px 0 14px;
+  position: relative;
+  font: 700 27px / 1.2 Georgia;
+  margin: 22px 0 12px;
 }
 
 .benefit-card p {
+  margin: 0 0 20px;
   font-size: 14px;
   line-height: 1.7;
   color: #5d6b66;
@@ -498,6 +496,12 @@ a {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 14px;
+}
+
+.cta-actions small {
+  color: #abd0c3;
+  margin-left: 10px;
 }
 
 .button-white {
@@ -1154,14 +1158,7 @@ button:focus-visible,
 .section h2,
 .system-copy h2,
 .cta-card h2 {
-  overflow-wrap: anywhere;
-}
-
-.proof-inner {
-  height: auto;
-  min-height: 84px;
-  padding-block: 24px;
-  flex-wrap: wrap;
+  overflow-wrap: break-word;
 }
 
 .pdf-header {
@@ -1345,17 +1342,9 @@ button:focus-visible,
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .benefit-card:last-child {
-    grid-column: 1 / -1;
-  }
-
   .benefit-card {
     min-height: 0;
     padding: 28px;
-  }
-
-  .benefit-icon {
-    margin-top: 20px;
   }
 
   .real-metrics,
@@ -1492,19 +1481,6 @@ button:focus-visible,
 
   .real-topbar .demo-action {
     grid-column: 1 / -1;
-    font-size: 11px;
-  }
-
-  .proof-inner {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .proof-inner i {
-    transform: rotate(90deg);
-  }
-
-  .proof-inner b {
     font-size: 11px;
   }
 
@@ -1703,10 +1679,10 @@ button:focus-visible,
   color: var(--lime);
 }
 
-.news-copy h3 {
+.news-copy h4 {
   margin: 12px 0;
   font:
-    700 27px / 1.15 Georgia,
+    700 22px / 1.15 Georgia,
     serif;
 }
 
@@ -1746,12 +1722,6 @@ button:focus-visible,
   .news-play-icon {
     width: 48px;
     height: 48px;
-  }
-
-  .news-play-label {
-    left: 16px;
-    bottom: 12px;
-    font-size: 12px;
   }
 }
 
@@ -1858,17 +1828,14 @@ button:focus-visible,
 .benefit-card,
 .floating-card,
 .nav-links a,
-.text-link,
 .benefit-card a {
   transition: transform 0.35s ease-out;
 }
 
-.text-link,
 .benefit-card a {
   position: relative;
 }
 
-.text-link::after,
 .benefit-card a::after {
   content: "";
   position: absolute;
@@ -1901,12 +1868,10 @@ button:focus-visible,
   }
 
   .nav-links a:hover,
-  .text-link:hover,
   .benefit-card a:hover {
     transform: translateX(2px);
   }
 
-  .text-link:hover::after,
   .benefit-card a:hover::after {
     opacity: 1;
     transform: scaleX(1);
@@ -1945,9 +1910,7 @@ button:focus-visible,
   .benefit-card,
   .floating-card,
   .nav-links a,
-  .text-link,
   .benefit-card a,
-  .text-link::after,
   .benefit-card a::after {
     transform: none !important;
   }
