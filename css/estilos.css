@@ -295,8 +295,10 @@ a {
 }
 
 .proof-inner {
-  height: 84px;
+  min-height: 84px;
+  padding-block: 24px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 27px;
@@ -1432,6 +1434,16 @@ button:focus-visible,
 @media (max-width: 600px) {
   .container {
     width: calc(100% - 32px);
+  }
+
+  .proof-inner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .proof-inner i {
+    transform: rotate(90deg);
   }
 
   .brand {
