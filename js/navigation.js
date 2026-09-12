@@ -2,50 +2,43 @@ const navigation = document.querySelector(".nav");
 const toggle = navigation.querySelector(".menu-toggle");
 const links = navigation.querySelector(".nav-links");
 const mobile = window.matchMedia("(max-width: 900px)");
-
 function closeMenu() {
   toggle.setAttribute("aria-expanded", "false");
   toggle.textContent = "Menu";
 }
-
-function setMenuState(expanded) {
-  toggle.setAttribute("aria-expanded", String(expanded));
-  links.setAttribute("aria-hidden", String(!expanded));
-  toggle.textContent = expanded ? "Fechar menu" : "Abrir menu";
-}
-
-setMenuState(false);
-
 toggle.hidden = false;
 navigation.classList.add("has-menu");
-
+closeMenu();
 toggle.addEventListener("click", () => {
   const expanded = toggle.getAttribute("aria-expanded") !== "true";
   toggle.setAttribute("aria-expanded", String(expanded));
   toggle.textContent = expanded ? "Fechar" : "Menu";
 });
-
 links.addEventListener("click", (event) => {
-  if (event.target.closest("a") && mobile.matches) {
-    closeMenu();
-    toggle.focus({ preventScroll: true });
+  const anchor = event.target.closest("a");
+  if (!anchor) return;
+  const target = document.getElementById(anchor.hash.slice(1));
+  closeMenu();
+  if (target) {
+    target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
   }
 });
-
 document.addEventListener("keydown", (event) => {
-  if (
-    event.key === "Escape" &&
-    toggle.getAttribute("aria-expanded") === "true"
-  ) {
+  if (event.key !== "Escape") return;
+  if (toggle.getAttribute("aria-expanded") === "true") {
     closeMenu();
     toggle.focus();
   }
 });
-
 document.addEventListener("click", (event) => {
   if (!navigation.contains(event.target)) closeMenu();
 });
-
+navigation.addEventListener("focusout", () => {
+  requestAnimationFrame(() => {
+    if (!navigation.contains(document.activeElement)) closeMenu();
+  });
+});
 mobile.addEventListener("change", () => {
   const focused = document.activeElement;
   closeMenu();
