@@ -1,6 +1,6 @@
-# Avaliar Fácil — AF Device
+# Avaliar Fácil — Sistema de avaliações
 
-Site de apresentação do AF Device, equipamento para avaliações digitais em escolas pela rede local, sem depender de internet.
+Site de apresentação do Avaliar Fácil, sistema para avaliações digitais em escolas pela rede local, sem depender de internet.
 
 ## Como visualizar
 
@@ -17,7 +17,7 @@ Abra o arquivo `index.html` no navegador. Não é necessário instalar dependên
 
 ## Pendências
 
-- Adicionar as seções de acesso ao equipamento, alunos e administradores com suas informações. Os comentários `TODO` no HTML indicam os locais e os links que precisarão ser atualizados.
+- Adicionar as seções de acesso ao sistema, alunos e administradores com suas informações. Os comentários `TODO` no HTML indicam os locais e os links que precisarão ser atualizados.
 - Confirmar e-mail e telefone de contato para atualizar;
 - FaZER a migração dos vídeos das reportagens para o Vimeo.
 - Adicionar transcrições acessíveis das reportagens quando disponíveis.
