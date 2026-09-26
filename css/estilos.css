@@ -1623,6 +1623,7 @@ button:focus-visible,
 }
 
 .news-play,
+.news-image-link,
 .news-video {
   display: block;
   width: 100%;
@@ -1636,7 +1637,8 @@ button:focus-visible,
   color: #fff;
 }
 
-.news-play img {
+.news-play img,
+.news-image-link img {
   display: block;
   width: 100%;
   height: 100%;
@@ -1675,6 +1677,7 @@ button:focus-visible,
 }
 
 .news-play:focus-visible,
+.news-image-link:focus-visible,
 .news-video:focus-visible {
   outline: 3px solid var(--lime);
   outline-offset: 4px;
