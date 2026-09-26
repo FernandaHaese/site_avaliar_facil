@@ -18,5 +18,11 @@ Abra o arquivo `index.html` no navegador. Não é necessário instalar dependên
 ## Pendências
 
 - Confirmar e-mail e telefone de contato para atualizar;
-- FaZER a migração dos vídeos das reportagens para o Vimeo.
+- Fazer a migração dos vídeos das reportagens para o Vimeo.
 - Adicionar transcrições acessíveis das reportagens quando disponíveis.
+
+## Publição na hospedagem
+
+Envie `index.html` e as pastas `css/`, `js/` e `assets/` para a pasta pública do domínio na Hestia, mantendo essa estrutura. Envie os arquivos de apoio antes do HTML.
+
+Depois de publicar, confira o site com `Ctrl + F5` ou em uma janela privativa. Se houver cache adicional na hospedagem ou CDN, limpe-o também.
