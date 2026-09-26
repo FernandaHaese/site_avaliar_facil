@@ -74,9 +74,15 @@
             Menu
           </button>
           <div class="nav-links" id="navigation-links">
-            <a href="#recursos">Como funciona</a>
-            <a href="#painel-professor">Professores</a>
-            <a href="#para-quem">Relatórios</a>
+            <a href="#recursos">Funcionalidades</a>
+            <details class="nav-audience">
+              <summary>Perfis</summary>
+              <div class="nav-submenu">
+                <a href="#alunos">Alunos</a>
+                <a href="#painel-professor">Professores</a>
+                <a href="#administradores">Administradores</a>
+              </div>
+            </details>
             <a href="#noticias">Imprensa</a>
             <a href="#duvidas">FAQ</a>
             <a class="mobile-contact" href="#contato">Solicitar demonstração</a>
@@ -213,7 +219,7 @@
               login. O sistema funciona na rede local, com os dados armazenados
               no sistema, na escola.
             </p>
-            <a href="#contato">Conhecer esta funcionalidade →</a>
+            <a href="#acesso">Entenda como acessar →</a>
           </article>
           <article class="benefit-card sage">
             <div class="card-number" aria-hidden="true">02</div>
@@ -224,7 +230,7 @@
               pelo professor. Responda às questões e envie suas respostas pelo
               sistema.
             </p>
-            <a href="#contato">Conhecer esta funcionalidade →</a>
+            <a href="#alunos">Veja o acesso do aluno →</a>
           </article>
           <article class="benefit-card blue">
             <div class="card-number" aria-hidden="true">03</div>
@@ -246,26 +252,95 @@
               métricas e relatórios. A aplicação das avaliações fica com o
               professor.
             </p>
-            <a href="#contato">Conhecer esta funcionalidade →</a>
+            <a href="#administradores">Conheça a gestão administrativa →</a>
           </article>
         </div>
       </section>
-      <!-- TODO: Adicionar aqui a seção de acesso ao sistema (id="acesso"),
-           com as informações de conexão ao Wi-Fi, rede local e login.
-           Depois, atualizar o link do primeiro card de "Como funciona". -->
+      <section
+        class="section access-section"
+        id="acesso"
+        aria-labelledby="acesso-titulo"
+      >
+        <div class="container profile-layout">
+          <div class="profile-copy">
+            <span class="kicker light">ACESSO AO SISTEMA</span>
+            <h2 id="acesso-titulo">
+              Conecte-se na escola. Acesse sem internet.
+            </h2>
+            <p>
+              Alunos, professores e administradores acessam o sistema por um
+              computador ou celular conectado à rede local. Cada pessoa faz
+              login e encontra as funções do seu perfil.
+            </p>
+          </div>
+          <ol class="profile-steps" role="list">
+            <li>
+              <h3>Conecte ao Wi-Fi</h3>
+              <p>
+                Use a rede local disponibilizada para acessar o sistema na
+                escola.
+              </p>
+            </li>
+            <li>
+              <h3>Acesse o sistema</h3>
+              <p>Faça login com seu usuário.</p>
+            </li>
+            <li>
+              <h3>Comece a usar</h3>
+              <p>
+                Acesse suas atividades sem depender de uma conexão com a
+                internet.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
 
-      <!-- TODO: Adicionar aqui a seção para alunos (id="alunos"),
-           com o fluxo de acesso, preenchimento e envio da avaliação.
-           Depois, atualizar o link do segundo card e incluir Alunos na navegação. -->
+      <section
+        class="section container"
+        id="alunos"
+        aria-labelledby="alunos-titulo"
+      >
+        <div class="profile-layout">
+          <div class="profile-copy">
+            <span class="kicker">PARA ALUNOS</span>
+            <h2 id="alunos-titulo">
+              Da avaliação liberada às respostas enviadas.
+            </h2>
+            <p>
+              Depois de se conectar à rede local e fazer login, o aluno acessa a
+              avaliação liberada pelo professor e responde pelo próprio
+              computador ou celular.
+            </p>
+          </div>
+          <ol class="profile-steps profile-student" role="list">
+            <li>
+              <h3>Use o código da avaliação</h3>
+              <p>Acesse a atividade com o código fornecido pelo professor.</p>
+            </li>
+            <li>
+              <h3>Responda às questões</h3>
+              <p>Preencha suas respostas diretamente no sistema.</p>
+            </li>
+            <li>
+              <h3>Envie suas respostas</h3>
+              <p>
+                Ao concluir, envie a avaliação para que o professor acompanhe os
+                resultados.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
 
       <section class="system-section" id="painel-professor">
         <div class="container device-story">
           <div class="system-copy">
-            <span class="kicker light">DURANTE A AVALIAÇÃO</span>
+            <span class="kicker light">PARA PROFRESSORES</span>
             <h2>O professor acompanha <br /><em>a turma ao vivo.</em></h2>
             <p>
-              Acompanhe o andamento da avaliação em uma só tela. O exemplo
-              mostra as informações disponíveis para o professor.
+              Crie, aplique e acompanhe o andamento da avaliação em uma só tela.
+              O exemplo mostra as informações disponíveis para o professor.
             </p>
             <ul class="preview-list">
               <li>Alunos conectados à sala</li>
@@ -336,22 +411,24 @@
           </div>
         </div>
       </section>
-      <!-- TODO: Adicionar aqui a seção para administradores (id="administradores"),
-           Com as funcionalidades de cadastros, avaliações e relatórios.
-           Avaliar como aproveitar o bloco de relatórios abaixo para evitar repetição.
-           Depois, atualizar o link do quarto card e incluir Administradores na navegação. -->
-
-      <section class="section reports container" id="para-quem">
+      <section
+        class="section reports container"
+        id="administradores"
+        aria-labelledby="administradores-titulo"
+      >
         <div class="section-heading">
           <div>
-            <span class="kicker">RESULTADOS EM PDF</span>
-            <h2>Entenda os resultados por aluno e matéria.</h2>
+            <span class="kicker">PARA ADMINISTRADORES</span>
+            <h2 id="administradores-titulo">
+              Organize os cadastros. Acompanhe os resultados.
+            </h2>
           </div>
           <p>
-            Consulte a participação da turma, a média de acertos e as notas
-            individuais. Veja um exemplo do relatório gerado pelo sistema.
+            Cadastre professores, turmas e alunos, crie avaliações e acompanhe o
+            desempenho dos alunos e turmas com métricas e relatórios.
           </p>
         </div>
+
         <div class="report-paper">
           <div class="pdf-header">
             <div>

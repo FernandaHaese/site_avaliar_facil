@@ -17,7 +17,6 @@ Abra o arquivo `index.html` no navegador. Não é necessário instalar dependên
 
 ## Pendências
 
-- Adicionar as seções de acesso ao sistema, alunos e administradores com suas informações. Os comentários `TODO` no HTML indicam os locais e os links que precisarão ser atualizados.
 - Confirmar e-mail e telefone de contato para atualizar;
 - FaZER a migração dos vídeos das reportagens para o Vimeo.
 - Adicionar transcrições acessíveis das reportagens quando disponíveis.

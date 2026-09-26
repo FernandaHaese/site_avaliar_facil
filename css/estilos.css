@@ -1935,3 +1935,57 @@ button:focus-visible,
     transform: none !important;
   }
 }
+/* Detalhes de acesso e funcionalidades por perfil */
+.profile-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 56px;
+}
+.profile-copy { min-width: 0; }
+.section .profile-copy h2 { margin-bottom: 23px; }
+.profile-copy p { margin: 0; color: #52615c; font-size: 17px; line-height: 1.7; }
+.access-section { background: var(--ink); color: var(--paper); }
+.access-section .profile-copy p, .access-section .profile-steps p { color: #cbdad3; }
+.profile-steps { list-style: none; counter-reset: profile-step; padding: 8px 28px; margin: 0; border-radius: 16px; }
+.profile-steps li { counter-increment: profile-step; position: relative; padding: 24px 0 24px 48px; border-bottom: 1px solid #13251f26; }
+.profile-steps li:last-child { border-bottom: 0; }
+.profile-steps li::before { content: counter(profile-step, decimal-leading-zero); position: absolute; left: 0; top: 24px; font: bold 24px Georgia, serif; color: var(--green); }
+.profile-steps h3 { font: bold 21px/1.25 Georgia, serif; margin: 0; }
+.profile-steps p { margin: 8px 0 0; color: #52615c; line-height: 1.65; }
+.access-section .profile-steps { background: #ffffff06; }
+.access-section .profile-steps li { border-color: #ffffff26; }
+.access-section .profile-steps li::before { color: var(--lime); }
+.profile-student { background: #eaf2d3; }
+.report-intro { max-width: 720px; margin-bottom: 28px; }
+.report-intro h3 { margin: 0 0 16px; font: bold 26px/1.2 Georgia, serif; }
+.report-intro p { margin: 0; color: #52615c; line-height: 1.7; }
+@media (max-width: 900px) {
+  .profile-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+}
+@media (max-width: 600px) {
+  .profile-steps { padding: 4px 20px; }
+  .profile-steps li { padding-left: 40px; }
+  .profile-copy p { font-size: 16px; }
+}
+/* Submenu de navegacao por perfil */
+.nav { position: relative; z-index: 5; }
+.nav-links { align-items: center; }
+.nav-audience { position: relative; }
+.nav-audience summary { display: flex; align-items: center; gap: 9px; min-height: 44px; cursor: pointer; list-style: none; }
+.nav-audience summary::-webkit-details-marker { display: none; }
+.nav-audience summary::after { content: ''; width: 6px; height: 6px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); }
+.nav-audience[open] summary::after { transform: rotate(225deg); }
+.nav-audience summary:hover { color: var(--green); }
+.nav-audience summary:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; border-radius: 4px; }
+.nav-submenu { position: absolute; top: 100%; left: -12px; min-width: 210px; padding: 8px; background: var(--paper); border: 1px solid #d7dfd4; border-radius: 12px; box-shadow: 0 12px 30px #13251f18; }
+.nav-submenu a { display: flex; align-items: center; min-height: 44px; padding: 10px 12px; border-radius: 6px; }
+.nav-submenu a:hover { background: #e6efd8; }
+@media (min-width: 901px) and (max-width: 1100px) { .nav-links { gap: 18px; } }
+@media (max-width: 900px) {
+  .nav-links { align-items: stretch; }
+  .nav-audience summary { padding: 10px 12px; }
+  .nav-submenu { position: static; min-width: 0; margin: 0 12px 8px; box-shadow: none; }
+  .nav-links .mobile-contact { background: var(--ink); color: white; justify-content: center; margin-top: 8px; }
+  .nav-links .mobile-contact:hover { background: var(--green); color: white; }
+}
